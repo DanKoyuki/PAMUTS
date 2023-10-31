@@ -43,7 +43,13 @@ class Menu: AppCompatActivity(), MenuAdapter.MyClickListener {
     }
 
     override fun onClick(title: String) {
+        val username = intent.getStringExtra("Username")
+        val storename = intent.getStringExtra("Storename")
         val intent = Intent(this, ProductDetail::class.java)
+        Log.d("Menu to Details", "$username, $storename :v")
+        intent.putExtra("user", username)
+        intent.putExtra("store", storename)
+        intent.putExtra("product", title)
         startActivity(intent)
     }
 

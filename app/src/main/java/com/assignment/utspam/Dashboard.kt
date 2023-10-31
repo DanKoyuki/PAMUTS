@@ -44,8 +44,10 @@ class Dashboard : AppCompatActivity() {
         val menuBtn : Button = findViewById(R.id.MenuBtn)
         menuBtn.setOnClickListener{
             val username = intent.getStringExtra("Username")
+            val storename = intent.getStringExtra("StoreName")
             val menuIntent = Intent(this, Menu::class.java)
             menuIntent.putExtra("Username", username)
+            menuIntent.putExtra("Storename", storename)
             startActivity(menuIntent)
         }
     }

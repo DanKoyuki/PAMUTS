@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
             val storeSelected = adapterView.getItemAtPosition(i)
             dropdownValue = storeSelected.toString()
-            Toast.makeText(this, "Store: $storeSelected", Toast.LENGTH_SHORT).show()
         }
 
 //        Button
