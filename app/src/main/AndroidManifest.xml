@@ -25,7 +25,11 @@
         </activity>
         <activity android:name=".Menu">
         </activity>
-        <activity android:name=".ProductDetail">
+        <activity android:name=".ProductDetail"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib.name"
+                android:value=""/>
         </activity>
     </application>
 

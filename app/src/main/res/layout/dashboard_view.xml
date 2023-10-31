@@ -47,6 +47,7 @@
         android:id="@+id/restaurantImage"
         android:layout_width="match_parent"
         android:layout_height="215dp"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toBottomOf="@+id/AppBarLayout" />
 
     <TextView

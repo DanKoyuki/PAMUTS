@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Menu"
-    android:background="@color/black">
+    tools:context=".Menu">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/AppBarLayout2"
@@ -45,9 +45,9 @@
         android:id="@+id/menuItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:itemCount="5"
         app:layout_constraintTop_toBottomOf="@+id/AppBarLayout2"
+        android:layout_marginTop="58dp"
         android:background="@color/white"
-        tools:listitem="@layout/menudesign"/>
+        tools:listitem="@layout/menudesign" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.assignment.utspam
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -7,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class Menu: AppCompatActivity() {
+class Menu: AppCompatActivity(), MenuAdapter.MyClickListener {
+
+    private lateinit var MenuView: RecyclerView
+    private lateinit var menuList: ArrayList<MenuItemModel>
+    private lateinit var adapter: MenuAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,20 +20,19 @@ class Menu: AppCompatActivity() {
 
         usernameHandler()
 
-        val MenuView = findViewById<RecyclerView>(R.id.menuItem)
+        MenuView = findViewById<RecyclerView>(R.id.menuItem)
 
-        MenuView.layoutManager = LinearLayoutManager(this)
+        menuList = ArrayList()
+        menuList.add(MenuItemModel(R.drawable.pizzafood, "Pizza", "Pinapple Pizza"))
+        menuList.add(MenuItemModel(R.drawable.burger, "Burger", "Double Burger"))
+        menuList.add(MenuItemModel(R.drawable.spaghetti, "Spaghetti", "pasta"))
+        menuList.add(MenuItemModel(R.drawable.steak, "Steak", "Steak wa suteki"))
 
-        val data = ArrayList<MenuItemModel>()
+        adapter = MenuAdapter(menuList, this@Menu)
 
-        data.add(MenuItemModel("Pizza", "pizza for everyone"))
-        data.add(MenuItemModel("Burger", "Burger for Everyone"))
-        data.add(MenuItemModel("Spaghetti", "Spaghetti for Everyone"))
-        data.add(MenuItemModel("Steak", "Steak for Everyone"))
-
-        val adapter = MenuAdapter(data)
         MenuView.adapter = adapter
-
+        MenuView.setHasFixedSize(true)
+        MenuView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun usernameHandler() {
@@ -36,6 +40,11 @@ class Menu: AppCompatActivity() {
         Log.d("board", "Username: $username")
         val nameDisplay: TextView = findViewById(R.id.UsernameDisplay2)
         nameDisplay.text = "Hello, $username"
+    }
+
+    override fun onClick(title: String) {
+        val intent = Intent(this, ProductDetail::class.java)
+        startActivity(intent)
     }
 
 }
